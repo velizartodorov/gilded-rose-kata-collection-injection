@@ -33,6 +33,7 @@ jobs:
   dependency-submission:
 
     runs-on: ubuntu-latest
+    if: ${{ vars.ENABLE_DEP_GRAPH == 'true' }}
     permissions:
       contents: write
 
