@@ -11,7 +11,12 @@ public abstract class ItemType {
       + QUALITY_LIMIT
       + "! Current value: ";
 
-  public abstract void loadItem(Item item);
+
+  protected Item item;
+
+  public void loadItem(Item item) {
+    this.item = item;
+  }
 
   protected boolean qualityIsNegative(Item item) {
     return item.quality < 0;
@@ -20,6 +25,8 @@ public abstract class ItemType {
   protected boolean qualityIsAboveLimit(Item item) {
     return item.quality > QUALITY_LIMIT;
   }
+
+  public abstract String getName();
 
   public abstract void updateQuality();
 

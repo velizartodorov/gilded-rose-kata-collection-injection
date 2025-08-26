@@ -1,19 +1,19 @@
 package gilded.rose.kata.items;
 
+import static gilded.rose.kata.items.NormalItem.NORMAL;
 import static java.lang.Math.max;
 
 import gilded.rose.kata.item_helpers.ItemType;
-import gilded.rose.kata.main.Item;
 import org.springframework.stereotype.Component;
 
-@Component("Normal")
+@Component(NORMAL)
 public class NormalItem extends ItemType {
 
-  private Item item;
+  static final String NORMAL = "Normal";
 
   @Override
-  public void loadItem(Item item) {
-    this.item = item;
+  public String getName() {
+    return NORMAL;
   }
 
   @Override

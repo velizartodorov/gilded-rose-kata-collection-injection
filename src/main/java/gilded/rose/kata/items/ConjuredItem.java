@@ -1,19 +1,19 @@
 package gilded.rose.kata.items;
 
+import static gilded.rose.kata.items.ConjuredItem.CONJURED_MANA_CAKE;
 import static java.lang.Math.max;
 
 import gilded.rose.kata.item_helpers.ItemType;
-import gilded.rose.kata.main.Item;
 import org.springframework.stereotype.Component;
 
-@Component("Conjured Mana Cake")
+@Component(CONJURED_MANA_CAKE)
 public class ConjuredItem extends ItemType {
 
-  private Item item;
+  static final String CONJURED_MANA_CAKE = "Conjured Mana Cake";
 
   @Override
-  public void loadItem(Item item) {
-    this.item = item;
+  public String getName() {
+    return CONJURED_MANA_CAKE;
   }
 
   @Override

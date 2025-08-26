@@ -1,18 +1,19 @@
 package gilded.rose.kata.items;
 
+import static gilded.rose.kata.items.LegendaryItem.SULFURAS_HAND_OF_RAGNAROS;
+
 import gilded.rose.kata.item_helpers.ItemType;
 import gilded.rose.kata.main.Item;
 import org.springframework.stereotype.Component;
 
-@Component("Sulfuras, Hand of Ragnaros")
+@Component(SULFURAS_HAND_OF_RAGNAROS)
 public class LegendaryItem extends ItemType {
 
-  private Item item;
-
+  static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
 
   @Override
-  public void loadItem(Item item) {
-    this.item = item;
+  public String getName() {
+    return SULFURAS_HAND_OF_RAGNAROS;
   }
 
   @Override

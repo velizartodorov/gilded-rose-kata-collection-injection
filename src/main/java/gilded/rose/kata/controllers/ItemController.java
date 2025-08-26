@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ItemController {
 
+  @SuppressWarnings("unused")
   @GetMapping("/item")
   public String getItemByName(@RequestParam String name) {
-    return "You requested item: " + name;
+    return "You requested item: " + getItem(name).getName();
   }
 
   @GetMapping

@@ -1,19 +1,19 @@
 package gilded.rose.kata.items;
 
+import static gilded.rose.kata.items.BackstagePassItem.BACKSTAGE_PASS;
 import static java.lang.Math.min;
 
 import gilded.rose.kata.item_helpers.ItemType;
-import gilded.rose.kata.main.Item;
 import org.springframework.stereotype.Component;
 
-@Component("Backstage passes to a TAFKAL80ETC concert")
+@Component(BACKSTAGE_PASS)
 public class BackstagePassItem extends ItemType {
 
-  private Item item;
+  public static final String BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert";
 
   @Override
-  public void loadItem(Item item) {
-    this.item = item;
+  public String getName() {
+    return BACKSTAGE_PASS;
   }
 
   @Override
