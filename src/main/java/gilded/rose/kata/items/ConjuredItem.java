@@ -7,7 +7,7 @@ import gilded.rose.kata.main.Item;
 import org.springframework.stereotype.Component;
 
 @Component("Conjured Mana Cake")
-public class ConjuredItem implements ItemType {
+public class ConjuredItem extends ItemType {
 
   private Item item;
 

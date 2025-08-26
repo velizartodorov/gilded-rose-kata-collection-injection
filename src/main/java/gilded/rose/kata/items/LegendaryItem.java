@@ -5,7 +5,7 @@ import gilded.rose.kata.main.Item;
 import org.springframework.stereotype.Component;
 
 @Component("Sulfuras, Hand of Ragnaros")
-public class LegendaryItem implements ItemType {
+public class LegendaryItem extends ItemType {
 
   private Item item;
 

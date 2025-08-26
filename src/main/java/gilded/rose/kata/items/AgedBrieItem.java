@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component("Aged Brie")
 @RequiredArgsConstructor
-public class AgedBrieItem implements ItemType {
+public class AgedBrieItem extends ItemType {
 
   private Item item;
 
@@ -36,7 +36,6 @@ public class AgedBrieItem implements ItemType {
       throw new IllegalArgumentException(OUT_OF_BOUND_QUALITY_MESSAGE + item.quality);
     }
   }
-
 
   private void incrementQuality() {
     item.quality = min(item.quality + 1, QUALITY_LIMIT);

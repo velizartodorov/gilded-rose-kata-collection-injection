@@ -7,7 +7,7 @@ import gilded.rose.kata.main.Item;
 import org.springframework.stereotype.Component;
 
 @Component("Normal")
-public class NormalItem implements ItemType {
+public class NormalItem extends ItemType {
 
   private Item item;
 

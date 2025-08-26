@@ -7,7 +7,7 @@ import gilded.rose.kata.main.Item;
 import org.springframework.stereotype.Component;
 
 @Component("Backstage passes to a TAFKAL80ETC concert")
-public class BackstagePassItem implements ItemType {
+public class BackstagePassItem extends ItemType {
 
   private Item item;
 
