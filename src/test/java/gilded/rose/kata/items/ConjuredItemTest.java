@@ -1,13 +1,9 @@
 package gilded.rose.kata.items;
 
-import static lombok.AccessLevel.PRIVATE;
-
 import gilded.rose.kata.main.Item;
-import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
-@FieldDefaults(makeFinal = true, level = PRIVATE)
 public class ConjuredItemTest extends TestHelper {
 
   public static final String CONJURED = "Conjured Mana Cake";

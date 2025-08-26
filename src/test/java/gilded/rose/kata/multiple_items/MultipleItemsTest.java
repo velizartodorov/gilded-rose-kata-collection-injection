@@ -15,11 +15,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.springframework.boot.test.context.SpringBootTest;
 
 @FieldDefaults(makeFinal = true, level = PRIVATE)
 @TestInstance(PER_CLASS)
-@SpringBootTest
 class MultipleItemsTest extends TestHelper {
 
   String DEXTERITY_VEST = "+5 Dexterity Vest";
