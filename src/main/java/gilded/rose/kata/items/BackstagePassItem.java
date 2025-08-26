@@ -1,20 +1,20 @@
 package gilded.rose.kata.items;
 
 import static java.lang.Math.min;
-import static lombok.AccessLevel.NONE;
 
 import gilded.rose.kata.item_helpers.ItemType;
 import gilded.rose.kata.main.Item;
-import lombok.Getter;
-import lombok.Value;
+import org.springframework.stereotype.Component;
 
-@Value
+@Component("Backstage passes to a TAFKAL80ETC concert")
 public class BackstagePassItem implements ItemType {
 
-  String name = "Backstage passes to a TAFKAL80ETC concert";
+  private Item item;
 
-  @Getter(NONE)
-  Item item;
+  @Override
+  public void loadItem(Item item) {
+    this.item = item;
+  }
 
   @Override
   public void updateQuality() {

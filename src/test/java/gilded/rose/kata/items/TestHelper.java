@@ -10,9 +10,15 @@ import gilded.rose.kata.main.GildedRose;
 import gilded.rose.kata.main.Item;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 @TestMethodOrder(OrderAnnotation.class)
+@SpringBootTest
 public class TestHelper {
+
+  @Autowired
+  protected GildedRose gildedRose;
 
   void testItem
       (Item item,
@@ -22,9 +28,9 @@ public class TestHelper {
       ) {
     Item[] items = new Item[1];
     items[0] = item;
-    GildedRose app = new GildedRose(items);
+    gildedRose.loadItems(items);
     for (int i = 0; i < daysToPass; i++) {
-      app.updateQuality();
+      gildedRose.updateQuality();
     }
     assertEquals(expectedSellIn, item.sellIn);
     assertEquals(expectedQuality, item.quality);
@@ -41,7 +47,7 @@ public class TestHelper {
   void checkItemForExceptionMessage(Item item, String message) {
     Item[] items = new Item[1];
     items[0] = item;
-    GildedRose gildedRose = new GildedRose(items);
+    gildedRose.loadItems(items);
     Exception exception = assertThrows(IllegalArgumentException.class, gildedRose::updateQuality);
     String actualMessage = exception.getMessage();
     assertTrue(actualMessage.contains(message));

@@ -1,29 +1,17 @@
 package gilded.rose.kata.item_helpers;
 
-import static java.util.stream.Collectors.toMap;
-import static java.util.stream.Stream.of;
-
-import gilded.rose.kata.items.AgedBrieItem;
-import gilded.rose.kata.items.BackstagePassItem;
-import gilded.rose.kata.items.ConjuredItem;
-import gilded.rose.kata.items.LegendaryItem;
 import gilded.rose.kata.items.NormalItem;
-import gilded.rose.kata.main.Item;
-import java.util.stream.Stream;
-import lombok.experimental.UtilityClass;
+import java.util.Map;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
-@UtilityClass
+@Component
+@RequiredArgsConstructor
 public class ItemFactory {
 
-  public ItemType getItemType(Item item) {
-    return getItems(item)
-        .collect(toMap(ItemType::getName, itemType -> itemType))
-        .computeIfAbsent(item.name, (itemType -> new NormalItem(item)));
-  }
+  private final Map<String, ItemType> itemTypes;
 
-  private Stream<ItemType> getItems(Item item) {
-    return of(new NormalItem(item), new AgedBrieItem(item), new LegendaryItem(item),
-        new BackstagePassItem(item), new ConjuredItem(item));
+  public ItemType getItemType(String name) {
+    return itemTypes.getOrDefault(name, new NormalItem());
   }
-
 }

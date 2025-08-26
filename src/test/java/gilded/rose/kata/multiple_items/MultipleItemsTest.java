@@ -9,16 +9,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 
 import gilded.rose.kata.items.TestHelper;
-import gilded.rose.kata.main.GildedRose;
 import gilded.rose.kata.main.Item;
 import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.springframework.boot.test.context.SpringBootTest;
 
 @FieldDefaults(makeFinal = true, level = PRIVATE)
 @TestInstance(PER_CLASS)
+@SpringBootTest
 class MultipleItemsTest extends TestHelper {
 
   String DEXTERITY_VEST = "+5 Dexterity Vest";
@@ -44,7 +45,7 @@ class MultipleItemsTest extends TestHelper {
   @BeforeAll
   void updateItemsQualityFor20Days() {
     Item[] items = getMultipleItems();
-    GildedRose gildedRose = new GildedRose(items);
+    gildedRose.loadItems(items);
     int days = 20;
     for (int i = 0; i < days; i++) {
       gildedRose.updateQuality();

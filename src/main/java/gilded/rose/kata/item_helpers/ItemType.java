@@ -11,6 +11,8 @@ public interface ItemType {
       + QUALITY_LIMIT
       + "! Current value: ";
 
+  void loadItem(Item item);
+
   default boolean qualityIsNegative(Item item) {
     return item.quality < 0;
   }
@@ -23,5 +25,4 @@ public interface ItemType {
 
   void validateQuality();
 
-  String getName();
 }

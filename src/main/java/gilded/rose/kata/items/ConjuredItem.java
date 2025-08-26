@@ -1,20 +1,20 @@
 package gilded.rose.kata.items;
 
 import static java.lang.Math.max;
-import static lombok.AccessLevel.NONE;
 
 import gilded.rose.kata.item_helpers.ItemType;
 import gilded.rose.kata.main.Item;
-import lombok.Getter;
-import lombok.Value;
+import org.springframework.stereotype.Component;
 
-@Value
+@Component("Conjured Mana Cake")
 public class ConjuredItem implements ItemType {
 
-  String name = "Conjured Mana Cake";
+  private Item item;
 
-  @Getter(NONE)
-  Item item;
+  @Override
+  public void loadItem(Item item) {
+    this.item = item;
+  }
 
   @Override
   public void updateQuality() {

@@ -1,20 +1,22 @@
 package gilded.rose.kata.items;
 
 import static java.lang.Math.min;
-import static lombok.AccessLevel.NONE;
 
 import gilded.rose.kata.item_helpers.ItemType;
 import gilded.rose.kata.main.Item;
-import lombok.Getter;
-import lombok.Value;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
-@Value
+@Component("Aged Brie")
+@RequiredArgsConstructor
 public class AgedBrieItem implements ItemType {
 
-  String name = "Aged Brie";
-  
-  @Getter(NONE)
-  Item item;
+  private Item item;
+
+  @Override
+  public void loadItem(Item item) {
+    this.item = item;
+  }
 
   @Override
   public void updateQuality() {
@@ -34,6 +36,7 @@ public class AgedBrieItem implements ItemType {
       throw new IllegalArgumentException(OUT_OF_BOUND_QUALITY_MESSAGE + item.quality);
     }
   }
+
 
   private void incrementQuality() {
     item.quality = min(item.quality + 1, QUALITY_LIMIT);

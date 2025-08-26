@@ -1,19 +1,19 @@
 package gilded.rose.kata.items;
 
-import static lombok.AccessLevel.NONE;
-
 import gilded.rose.kata.item_helpers.ItemType;
 import gilded.rose.kata.main.Item;
-import lombok.Getter;
-import lombok.Value;
+import org.springframework.stereotype.Component;
 
-@Value
+@Component("Sulfuras, Hand of Ragnaros")
 public class LegendaryItem implements ItemType {
 
-  String name = "Sulfuras, Hand of Ragnaros";
+  private Item item;
 
-  @Getter(NONE)
-  Item item;
+
+  @Override
+  public void loadItem(Item item) {
+    this.item = item;
+  }
 
   @Override
   public void updateQuality() {

@@ -8,15 +8,19 @@ import gilded.rose.kata.item_helpers.ItemFactory;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 class GildedRoseTest {
+
+  @Autowired
+  GildedRose gildedRose;
 
   @Test
   void foo() {
     Item[] items = new Item[]{new Item("foo", 0, 0)};
-    GildedRose app = new GildedRose(items);
-    app.updateQuality();
-    assertEquals("foo", app.items[0].name);
+    gildedRose.loadItems(items);
+    gildedRose.updateQuality();
+    assertEquals("foo", gildedRose.items[0].name);
   }
 
   @Test
