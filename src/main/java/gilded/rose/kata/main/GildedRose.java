@@ -17,10 +17,6 @@ public class GildedRose {
   @Autowired
   ItemFactory itemFactory;
 
-  public void loadItems(Item[] items) {
-    this.items = items;
-  }
-
   public void updateQuality() {
     stream(items).forEach(item -> {
       ItemType itemType = itemFactory.getItemType(item.name);

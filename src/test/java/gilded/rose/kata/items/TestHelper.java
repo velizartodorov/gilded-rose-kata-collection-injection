@@ -47,7 +47,7 @@ public class TestHelper {
   void checkItemForExceptionMessage(Item item, String message) {
     Item[] items = new Item[1];
     items[0] = item;
-    gildedRose.loadItems(items);
+    gildedRose.setItems(items);
     Exception exception = assertThrows(IllegalArgumentException.class, gildedRose::updateQuality);
     String actualMessage = exception.getMessage();
     assertTrue(actualMessage.contains(message));

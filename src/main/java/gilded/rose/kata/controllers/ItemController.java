@@ -1,22 +1,21 @@
 package gilded.rose.kata.controllers;
 
-import gilded.rose.kata.item_helpers.ItemType;
+import gilded.rose.kata.item_helpers.ItemFactory;
 import gilded.rose.kata.items.NormalItem;
-import java.util.List;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequiredArgsConstructor
 public class ItemController {
 
-  private final List<ItemType> items;
+  @Autowired
+  ItemFactory itemFactory;
 
   @GetMapping("/item")
   public String getItemByName(@RequestParam String name) {
-    return "You requested item: " + items.stream()
+    return "You requested item: " + itemFactory.getItemTypes()
         .filter(item -> item.getParam().equalsIgnoreCase(name))
         .findFirst()
         .orElse(new NormalItem())
