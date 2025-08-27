@@ -7,12 +7,18 @@ import gilded.rose.kata.item_helpers.ItemType;
 import org.springframework.stereotype.Component;
 
 @Component(NORMAL)
+@SuppressWarnings("unused")
 public class NormalItem extends ItemType {
 
   static final String NORMAL = "Normal";
 
   @Override
   public String getName() {
+    return NORMAL;
+  }
+
+  @Override
+  public String getParam() {
     return NORMAL;
   }
 

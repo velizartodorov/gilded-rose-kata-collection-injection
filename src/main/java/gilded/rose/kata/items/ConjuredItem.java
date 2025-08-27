@@ -7,6 +7,7 @@ import gilded.rose.kata.item_helpers.ItemType;
 import org.springframework.stereotype.Component;
 
 @Component(CONJURED_MANA_CAKE)
+@SuppressWarnings("unused")
 public class ConjuredItem extends ItemType {
 
   static final String CONJURED_MANA_CAKE = "Conjured Mana Cake";
@@ -14,6 +15,11 @@ public class ConjuredItem extends ItemType {
   @Override
   public String getName() {
     return CONJURED_MANA_CAKE;
+  }
+
+  @Override
+  public String getParam() {
+    return "Conjured";
   }
 
   @Override

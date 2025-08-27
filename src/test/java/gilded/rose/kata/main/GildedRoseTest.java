@@ -15,7 +15,7 @@ class GildedRoseTest {
   @Test
   void foo() {
     Item[] items = new Item[]{new Item("foo", 0, 0)};
-    gildedRose.loadItems(items);
+    gildedRose.setItems(items);
     gildedRose.updateQuality();
     assertEquals("foo", gildedRose.items[0].name);
   }

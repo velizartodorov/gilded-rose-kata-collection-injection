@@ -7,6 +7,7 @@ import gilded.rose.kata.item_helpers.ItemType;
 import org.springframework.stereotype.Component;
 
 @Component(BACKSTAGE_PASS)
+@SuppressWarnings("unused")
 public class BackstagePassItem extends ItemType {
 
   public static final String BACKSTAGE_PASS = "Backstage passes to a TAFKAL80ETC concert";
@@ -14,6 +15,11 @@ public class BackstagePassItem extends ItemType {
   @Override
   public String getName() {
     return BACKSTAGE_PASS;
+  }
+
+  @Override
+  public String getParam() {
+    return "BackstagePass";
   }
 
   @Override

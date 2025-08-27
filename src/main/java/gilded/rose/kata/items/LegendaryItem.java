@@ -7,6 +7,7 @@ import gilded.rose.kata.main.Item;
 import org.springframework.stereotype.Component;
 
 @Component(SULFURAS_HAND_OF_RAGNAROS)
+@SuppressWarnings("unused")
 public class LegendaryItem extends ItemType {
 
   static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
@@ -14,6 +15,11 @@ public class LegendaryItem extends ItemType {
   @Override
   public String getName() {
     return SULFURAS_HAND_OF_RAGNAROS;
+  }
+
+  @Override
+  public String getParam() {
+    return "Sulfuras";
   }
 
   @Override

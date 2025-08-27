@@ -28,7 +28,7 @@ public class TestHelper {
       ) {
     Item[] items = new Item[1];
     items[0] = item;
-    gildedRose.loadItems(items);
+    gildedRose.setItems(items);
     for (int i = 0; i < daysToPass; i++) {
       gildedRose.updateQuality();
     }

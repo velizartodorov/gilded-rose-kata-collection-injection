@@ -2,7 +2,9 @@ package gilded.rose.kata.item_helpers;
 
 
 import gilded.rose.kata.main.Item;
+import lombok.Setter;
 
+@Setter
 public abstract class ItemType {
 
   public static final int QUALITY_LIMIT = 50;
@@ -11,12 +13,7 @@ public abstract class ItemType {
       + QUALITY_LIMIT
       + "! Current value: ";
 
-
   protected Item item;
-
-  public void loadItem(Item item) {
-    this.item = item;
-  }
 
   protected boolean qualityIsNegative(Item item) {
     return item.quality < 0;
@@ -27,6 +24,8 @@ public abstract class ItemType {
   }
 
   public abstract String getName();
+
+  public abstract String getParam();
 
   public abstract void updateQuality();
 

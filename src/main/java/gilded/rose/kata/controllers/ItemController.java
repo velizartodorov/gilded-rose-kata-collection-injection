@@ -1,32 +1,26 @@
 package gilded.rose.kata.controllers;
 
 import gilded.rose.kata.item_helpers.ItemType;
-import gilded.rose.kata.items.AgedBrieItem;
-import gilded.rose.kata.items.BackstagePassItem;
-import gilded.rose.kata.items.ConjuredItem;
-import gilded.rose.kata.items.LegendaryItem;
 import gilded.rose.kata.items.NormalItem;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 public class ItemController {
 
-  @SuppressWarnings("unused")
+  private final List<ItemType> items;
+
   @GetMapping("/item")
   public String getItemByName(@RequestParam String name) {
-    return "You requested item: " + getItem(name).getName();
+    return "You requested item: " + items.stream()
+        .filter(item -> item.getParam().equalsIgnoreCase(name))
+        .findFirst()
+        .orElse(new NormalItem())
+        .getName();
   }
 
-  @GetMapping
-  public ItemType getItem(@RequestParam String item) {
-    return switch (item) {
-      case "AgedBrie" -> new AgedBrieItem();
-      case "Sulfuras" -> new LegendaryItem();
-      case "BackstagePass" -> new BackstagePassItem();
-      case "Conjured" -> new ConjuredItem();
-      default -> new NormalItem();
-    };
-  }
 }

@@ -4,11 +4,10 @@ import static gilded.rose.kata.items.AgedBrieItem.AGED_BRIE;
 import static java.lang.Math.min;
 
 import gilded.rose.kata.item_helpers.ItemType;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component(AGED_BRIE)
-@RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class AgedBrieItem extends ItemType {
 
   static final String AGED_BRIE = "Aged Brie";
@@ -16,6 +15,11 @@ public class AgedBrieItem extends ItemType {
   @Override
   public String getName() {
     return AGED_BRIE;
+  }
+
+  @Override
+  public String getParam() {
+    return "AgedBrie";
   }
 
   @Override

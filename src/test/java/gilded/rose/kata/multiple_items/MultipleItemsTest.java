@@ -43,7 +43,7 @@ class MultipleItemsTest extends TestHelper {
   @BeforeAll
   void updateItemsQualityFor20Days() {
     Item[] items = getMultipleItems();
-    gildedRose.loadItems(items);
+    gildedRose.setItems(items);
     int days = 20;
     for (int i = 0; i < days; i++) {
       gildedRose.updateQuality();
