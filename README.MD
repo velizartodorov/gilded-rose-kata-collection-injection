@@ -1,6 +1,8 @@
 # Introduction
 
-Implementation of the Gilded Rose Kata in Spring Boot, using Collection Injection. All
+Implementation of
+the [Gilded Rose Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/Java) in
+Spring Boot, using Collection Injection. All
 implementations are complying towards the abstract class `ItemType`, and are turned into a
 `List<ItemType>`
 inside the `ItemController` class, using Spring's `@Autowired` annotation.
